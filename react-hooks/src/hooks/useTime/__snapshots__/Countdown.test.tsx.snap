@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Countdown should match snapshot 1`] = `
+<h1>
+  This app will self-destruct in 
+  00:00:01
+</h1>
+`;
