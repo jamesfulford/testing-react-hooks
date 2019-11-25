@@ -5,15 +5,13 @@ import { useEffect, useState } from 'react';
 import { getTime } from './getTime';
 import { DateTime } from 'luxon';
 
-interface IUseTimeOptions {
+export interface IUseTimeOptions {
     _getTime: () => DateTime
 }
 export const useTime = (
     refreshCycleMilliseconds: number = 100,
     // For testing purposes
-    _getTime = getTime,
-    _setInterval = setInterval,
-    _clearInterval = clearInterval,
+    { _getTime }: IUseTimeOptions = { _getTime: getTime },
 ): DateTime => {
     // Returns the current time
     // and queues re-renders every `refreshCycle` milliseconds (default: 100ms)
@@ -23,20 +21,20 @@ export const useTime = (
     useEffect(() => {
         // Regularly set time in state
         // (this will cause your component to re-render frequently)
-        const intervalId = _setInterval(
+        const intervalId = setInterval(
             () => setNow(_getTime()),
             refreshCycleMilliseconds,
         );
 
         // Cleanup interval
-        return () => _clearInterval(intervalId);
+        return () => clearInterval(intervalId);
 
         // Specify dependencies for useEffect
     }, [
         refreshCycleMilliseconds,
         setNow,
         // Because of testing
-        _setInterval, _clearInterval, _getTime
+        _getTime,
     ]);
 
     return now;
