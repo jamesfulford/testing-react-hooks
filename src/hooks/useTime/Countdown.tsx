@@ -3,15 +3,14 @@
 //
 import React from 'react';
 import { DateTime } from 'luxon';
-import { useTime, IUseTimeOptions } from '.';
+import { useTime } from '.';
 
 interface ICountdownProps {
     end: DateTime,
-    _useTimeOptions: IUseTimeOptions,
 }
 
-export const Countdown: React.FC<ICountdownProps> = ({ end, _useTimeOptions }: ICountdownProps) => {
-    const now: DateTime = useTime(200, _useTimeOptions); // this countdown will queue a re-render every 200ms.
+export const Countdown: React.FC<ICountdownProps> = ({ end }: ICountdownProps) => {
+    const now: DateTime = useTime(200); // this countdown will queue a re-render every 200ms.
     // (it will try to update every 200ms)
 
     // Handling the out-of-time case (countdown finished!)
