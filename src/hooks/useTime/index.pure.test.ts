@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { useTime } from '.';
 
-describe('useTime (pure parameters', () => {
+describe('useTime (pure)', () => {
     it('should return the current time (mocked through parameters)', () => {
         const now = 'mockNow';
         const _getTime = jest.fn().mockReturnValue(now);

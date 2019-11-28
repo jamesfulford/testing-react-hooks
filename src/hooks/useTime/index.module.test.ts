@@ -8,7 +8,7 @@ jest.mock('./getTime', () => ({
 import { getTime } from './getTime'; // mocked function
 import { useTime } from '.';
 
-describe('', () => {
+describe('useTime (module)', () => {
     it('should return the current time (mocked through module system)', () => {
         const { result } = renderHook(() => useTime(100));
 

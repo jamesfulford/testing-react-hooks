@@ -3,7 +3,7 @@ import { renderHook, act } from '@testing-library/react-hooks'
 import { useFakeTimers, SinonFakeTimers } from 'sinon';
 import { useTime } from '.';
 
-describe('useTime', () => {
+describe('useTime (sinon clocks)', () => {
     let clock: SinonFakeTimers;
 
     beforeEach(() => { clock = useFakeTimers(); });
