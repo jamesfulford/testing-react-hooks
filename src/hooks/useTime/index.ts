@@ -1,5 +1,5 @@
 //
-// useTime hook
+// useTime hook: https://medium.com/javascript-in-plain-english/usetime-react-hook-f57979338de
 //
 import { useEffect, useState } from 'react';
 import { getTime } from './getTime';
