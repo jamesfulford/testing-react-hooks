@@ -9,7 +9,7 @@ describe('useTime', () => {
     beforeEach(() => { clock = useFakeTimers(); });
     afterEach(() => { clock.restore(); });
 
-    it('should return the current time (mocked)', () => {
+    it('should return the current time (mocked through parameters)', () => {
         const now = 'mockNow';
         const _getTime = jest.fn().mockReturnValue(now);
         const { result } = renderHook(() => useTime(100, { _getTime }));
