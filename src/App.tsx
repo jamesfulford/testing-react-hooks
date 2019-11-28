@@ -5,6 +5,7 @@ import { ConfigurationContext } from './hooks/useConfiguration';
 import logo from './logo.svg';
 import './App.css';
 import { DateTime } from 'luxon';
+import { InterruptingCow } from './hooks/useTimeout/InteruptingCow';
 
 const App: React.FC = () => {
   const end = DateTime.local().plus({ seconds: 5 });
@@ -12,6 +13,7 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <InterruptingCow />
         <code><Countdown end={end} /></code>
         <ConfigurationContext.Provider value={{ baseurl: 'https://jamesfulford.com', env: 'prod' }}>
           <ConfigSection />
