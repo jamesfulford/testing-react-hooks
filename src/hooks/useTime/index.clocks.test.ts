@@ -9,15 +9,6 @@ describe('useTime', () => {
     beforeEach(() => { clock = useFakeTimers(); });
     afterEach(() => { clock.restore(); });
 
-    it('should return the current time (mocked through parameters)', () => {
-        const now = 'mockNow';
-        const _getTime = jest.fn().mockReturnValue(now);
-        const { result } = renderHook(() => useTime(100, { _getTime }));
-
-        expect(result.current).toBe(now);
-        expect(_getTime).toBeCalledTimes(1);
-    });
-
     it('should update the time based on refresh rate', () => {
         const { result } = renderHook(() => useTime(100));
         const initialTime = result.current;
